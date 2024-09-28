@@ -13,6 +13,7 @@
 		E99B3A2F2CA800C0000847E8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E99B3A2E2CA800C0000847E8 /* Preview Assets.xcassets */; };
 		E99B3A382CA804E4000847E8 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E99B3A372CA804E4000847E8 /* Nunito-SemiBold.ttf */; };
 		E99B3A3A2CA804F6000847E8 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E99B3A392CA804F6000847E8 /* Nunito-Regular.ttf */; };
+		E99B3A3F2CA80C86000847E8 /* AppStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A3E2CA80C86000847E8 /* AppStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E99B3A372CA804E4000847E8 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
 		E99B3A392CA804F6000847E8 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		E99B3A3B2CA8055E000847E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E99B3A3E2CA80C86000847E8 /* AppStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				E99B3A3C2CA8085D000847E8 /* Application */,
+				E99B3A3D2CA80C7A000847E8 /* Common */,
 				E99B3A292CA800BE000847E8 /* ContentView.swift */,
 				E99B3A352CA80471000847E8 /* Resources */,
 			);
@@ -97,6 +100,22 @@
 				E99B3A272CA800BE000847E8 /* TestTaskApp.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		E99B3A3D2CA80C7A000847E8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E99B3A402CA80C8A000847E8 /* Styles */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E99B3A402CA80C8A000847E8 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				E99B3A3E2CA80C86000847E8 /* AppStyles.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E99B3A3F2CA80C86000847E8 /* AppStyles.swift in Sources */,
 				E99B3A2A2CA800BE000847E8 /* ContentView.swift in Sources */,
 				E99B3A282CA800BE000847E8 /* TestTaskApp.swift in Sources */,
 			);
