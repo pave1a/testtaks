@@ -16,6 +16,18 @@
 		E99B3A3F2CA80C86000847E8 /* AppStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A3E2CA80C86000847E8 /* AppStyles.swift */; };
 		E99B3A432CA814DA000847E8 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A422CA814D9000847E8 /* PrimaryButton.swift */; };
 		E99B3A452CA82866000847E8 /* FloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A442CA82866000847E8 /* FloatingTextField.swift */; };
+		E99B3A4B2CA8459D000847E8 /* UsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A4A2CA8459D000847E8 /* UsersResponse.swift */; };
+		E99B3A502CA85460000847E8 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A4F2CA85460000847E8 /* Endpoint.swift */; };
+		E99B3A522CA85467000847E8 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A512CA85467000847E8 /* HTTPClient.swift */; };
+		E99B3A542CA8546D000847E8 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A532CA8546D000847E8 /* HTTPMethod.swift */; };
+		E99B3A562CA85472000847E8 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A552CA85472000847E8 /* NetworkError.swift */; };
+		E99B3A582CA85478000847E8 /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A572CA85478000847E8 /* APIConfiguration.swift */; };
+		E99B3A5A2CA8547D000847E8 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A592CA8547D000847E8 /* APIEndpoint.swift */; };
+		E99B3A5D2CA854D1000847E8 /* UsersBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A5C2CA854D1000847E8 /* UsersBaseService.swift */; };
+		E99B3A5F2CA854E4000847E8 /* UsersBaseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A5E2CA854E4000847E8 /* UsersBaseConfig.swift */; };
+		E99B3A612CA86A06000847E8 /* APIRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A602CA86A06000847E8 /* APIRequestParams.swift */; };
+		E99B3A632CA86A43000847E8 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A622CA86A43000847E8 /* UserResponse.swift */; };
+		E99B3A652CA86B51000847E8 /* LinkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A642CA86B51000847E8 /* LinkResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +42,18 @@
 		E99B3A3E2CA80C86000847E8 /* AppStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyles.swift; sourceTree = "<group>"; };
 		E99B3A422CA814D9000847E8 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		E99B3A442CA82866000847E8 /* FloatingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingTextField.swift; sourceTree = "<group>"; };
+		E99B3A4A2CA8459D000847E8 /* UsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponse.swift; sourceTree = "<group>"; };
+		E99B3A4F2CA85460000847E8 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		E99B3A512CA85467000847E8 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		E99B3A532CA8546D000847E8 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		E99B3A552CA85472000847E8 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		E99B3A572CA85478000847E8 /* APIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
+		E99B3A592CA8547D000847E8 /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
+		E99B3A5C2CA854D1000847E8 /* UsersBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersBaseService.swift; sourceTree = "<group>"; };
+		E99B3A5E2CA854E4000847E8 /* UsersBaseConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersBaseConfig.swift; sourceTree = "<group>"; };
+		E99B3A602CA86A06000847E8 /* APIRequestParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestParams.swift; sourceTree = "<group>"; };
+		E99B3A622CA86A43000847E8 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		E99B3A642CA86B51000847E8 /* LinkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +133,7 @@
 		E99B3A3D2CA80C7A000847E8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E99B3A462CA8413A000847E8 /* Networking */,
 				E99B3A402CA80C8A000847E8 /* Styles */,
 				E99B3A412CA814C4000847E8 /* UIComponents */,
 			);
@@ -130,6 +155,49 @@
 				E99B3A442CA82866000847E8 /* FloatingTextField.swift */,
 			);
 			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		E99B3A462CA8413A000847E8 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E99B3A4E2CA8544E000847E8 /* Common */,
+				E99B3A492CA844EF000847E8 /* Model */,
+				E99B3A5B2CA854BA000847E8 /* UsersBaseService */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E99B3A492CA844EF000847E8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E99B3A4A2CA8459D000847E8 /* UsersResponse.swift */,
+				E99B3A622CA86A43000847E8 /* UserResponse.swift */,
+				E99B3A642CA86B51000847E8 /* LinkResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E99B3A4E2CA8544E000847E8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E99B3A572CA85478000847E8 /* APIConfiguration.swift */,
+				E99B3A592CA8547D000847E8 /* APIEndpoint.swift */,
+				E99B3A4F2CA85460000847E8 /* Endpoint.swift */,
+				E99B3A512CA85467000847E8 /* HTTPClient.swift */,
+				E99B3A532CA8546D000847E8 /* HTTPMethod.swift */,
+				E99B3A552CA85472000847E8 /* NetworkError.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E99B3A5B2CA854BA000847E8 /* UsersBaseService */ = {
+			isa = PBXGroup;
+			children = (
+				E99B3A602CA86A06000847E8 /* APIRequestParams.swift */,
+				E99B3A5E2CA854E4000847E8 /* UsersBaseConfig.swift */,
+				E99B3A5C2CA854D1000847E8 /* UsersBaseService.swift */,
+			);
+			path = UsersBaseService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,11 +272,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E99B3A652CA86B51000847E8 /* LinkResponse.swift in Sources */,
 				E99B3A3F2CA80C86000847E8 /* AppStyles.swift in Sources */,
+				E99B3A5F2CA854E4000847E8 /* UsersBaseConfig.swift in Sources */,
 				E99B3A2A2CA800BE000847E8 /* ContentView.swift in Sources */,
+				E99B3A502CA85460000847E8 /* Endpoint.swift in Sources */,
+				E99B3A632CA86A43000847E8 /* UserResponse.swift in Sources */,
 				E99B3A432CA814DA000847E8 /* PrimaryButton.swift in Sources */,
 				E99B3A452CA82866000847E8 /* FloatingTextField.swift in Sources */,
+				E99B3A5A2CA8547D000847E8 /* APIEndpoint.swift in Sources */,
+				E99B3A522CA85467000847E8 /* HTTPClient.swift in Sources */,
+				E99B3A612CA86A06000847E8 /* APIRequestParams.swift in Sources */,
 				E99B3A282CA800BE000847E8 /* TestTaskApp.swift in Sources */,
+				E99B3A4B2CA8459D000847E8 /* UsersResponse.swift in Sources */,
+				E99B3A5D2CA854D1000847E8 /* UsersBaseService.swift in Sources */,
+				E99B3A542CA8546D000847E8 /* HTTPMethod.swift in Sources */,
+				E99B3A562CA85472000847E8 /* NetworkError.swift in Sources */,
+				E99B3A582CA85478000847E8 /* APIConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
