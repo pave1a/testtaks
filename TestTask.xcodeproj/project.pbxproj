@@ -14,6 +14,8 @@
 		E99B3A382CA804E4000847E8 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E99B3A372CA804E4000847E8 /* Nunito-SemiBold.ttf */; };
 		E99B3A3A2CA804F6000847E8 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E99B3A392CA804F6000847E8 /* Nunito-Regular.ttf */; };
 		E99B3A3F2CA80C86000847E8 /* AppStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A3E2CA80C86000847E8 /* AppStyles.swift */; };
+		E99B3A432CA814DA000847E8 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A422CA814D9000847E8 /* PrimaryButton.swift */; };
+		E99B3A452CA82866000847E8 /* FloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A442CA82866000847E8 /* FloatingTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		E99B3A392CA804F6000847E8 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		E99B3A3B2CA8055E000847E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E99B3A3E2CA80C86000847E8 /* AppStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyles.swift; sourceTree = "<group>"; };
+		E99B3A422CA814D9000847E8 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		E99B3A442CA82866000847E8 /* FloatingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				E99B3A402CA80C8A000847E8 /* Styles */,
+				E99B3A412CA814C4000847E8 /* UIComponents */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -116,6 +121,15 @@
 				E99B3A3E2CA80C86000847E8 /* AppStyles.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		E99B3A412CA814C4000847E8 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				E99B3A422CA814D9000847E8 /* PrimaryButton.swift */,
+				E99B3A442CA82866000847E8 /* FloatingTextField.swift */,
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +206,8 @@
 			files = (
 				E99B3A3F2CA80C86000847E8 /* AppStyles.swift in Sources */,
 				E99B3A2A2CA800BE000847E8 /* ContentView.swift in Sources */,
+				E99B3A432CA814DA000847E8 /* PrimaryButton.swift in Sources */,
+				E99B3A452CA82866000847E8 /* FloatingTextField.swift in Sources */,
 				E99B3A282CA800BE000847E8 /* TestTaskApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
