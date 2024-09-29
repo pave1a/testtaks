@@ -9,5 +9,9 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Permission is required to use the camera.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Permission is required to use the library.</string>
 </dict>
 </plist>

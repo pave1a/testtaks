@@ -37,6 +37,9 @@
 		E99B3A852CA96D24000847E8 /* UserSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A842CA96D24000847E8 /* UserSignupView.swift */; };
 		E99B3A882CA97320000847E8 /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A872CA97320000847E8 /* Aliases.swift */; };
 		E99B3A8B2CA9733D000847E8 /* String+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A8A2CA9733D000847E8 /* String+Empty.swift */; };
+		E99B3A8F2CA976BC000847E8 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A8E2CA976BC000847E8 /* PermissionManager.swift */; };
+		E99B3A912CA97983000847E8 /* UserSignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A902CA97983000847E8 /* UserSignupViewModel.swift */; };
+		E99B3A932CA979A2000847E8 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A922CA979A2000847E8 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +75,9 @@
 		E99B3A842CA96D24000847E8 /* UserSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignupView.swift; sourceTree = "<group>"; };
 		E99B3A872CA97320000847E8 /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
 		E99B3A8A2CA9733D000847E8 /* String+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Empty.swift"; sourceTree = "<group>"; };
+		E99B3A8E2CA976BC000847E8 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		E99B3A902CA97983000847E8 /* UserSignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignupViewModel.swift; sourceTree = "<group>"; };
+		E99B3A922CA979A2000847E8 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,11 +157,10 @@
 		E99B3A3D2CA80C7A000847E8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				E99B3A862CA97318000847E8 /* Aliases */,
-				E99B3A892CA97334000847E8 /* Extensions */,
 				E99B3A462CA8413A000847E8 /* Networking */,
 				E99B3A402CA80C8A000847E8 /* Styles */,
 				E99B3A412CA814C4000847E8 /* UIComponents */,
+				E99B3A8C2CA97698000847E8 /* Utility */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 				E99B3A422CA814D9000847E8 /* PrimaryButton.swift */,
 				E99B3A442CA82866000847E8 /* FloatingTextField.swift */,
 				E99B3A822CA96CE9000847E8 /* UploadButton.swift */,
+				E99B3A922CA979A2000847E8 /* ImagePicker.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -253,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				E99B3A842CA96D24000847E8 /* UserSignupView.swift */,
+				E99B3A902CA97983000847E8 /* UserSignupViewModel.swift */,
 			);
 			path = UserSignup;
 			sourceTree = "<group>";
@@ -289,6 +296,24 @@
 				E99B3A8A2CA9733D000847E8 /* String+Empty.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E99B3A8C2CA97698000847E8 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				E99B3A862CA97318000847E8 /* Aliases */,
+				E99B3A892CA97334000847E8 /* Extensions */,
+				E99B3A8D2CA976A2000847E8 /* Permissions */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		E99B3A8D2CA976A2000847E8 /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				E99B3A8E2CA976BC000847E8 /* PermissionManager.swift */,
+			);
+			path = Permissions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,11 +399,14 @@
 				E99B3A852CA96D24000847E8 /* UserSignupView.swift in Sources */,
 				E99B3A432CA814DA000847E8 /* PrimaryButton.swift in Sources */,
 				E99B3A8B2CA9733D000847E8 /* String+Empty.swift in Sources */,
+				E99B3A8F2CA976BC000847E8 /* PermissionManager.swift in Sources */,
 				E99B3A452CA82866000847E8 /* FloatingTextField.swift in Sources */,
 				E99B3A5A2CA8547D000847E8 /* APIEndpoint.swift in Sources */,
 				E99B3A522CA85467000847E8 /* HTTPClient.swift in Sources */,
 				E99B3A612CA86A06000847E8 /* APIRequestParams.swift in Sources */,
 				E99B3A282CA800BE000847E8 /* TestTaskApp.swift in Sources */,
+				E99B3A932CA979A2000847E8 /* ImagePicker.swift in Sources */,
+				E99B3A912CA97983000847E8 /* UserSignupViewModel.swift in Sources */,
 				E99B3A4B2CA8459D000847E8 /* UsersResponse.swift in Sources */,
 				E99B3A682CA8747F000847E8 /* UsersListViewModel.swift in Sources */,
 				E99B3A832CA96CE9000847E8 /* UploadButton.swift in Sources */,
