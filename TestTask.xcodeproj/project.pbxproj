@@ -40,6 +40,7 @@
 		E99B3A8F2CA976BC000847E8 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A8E2CA976BC000847E8 /* PermissionManager.swift */; };
 		E99B3A912CA97983000847E8 /* UserSignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A902CA97983000847E8 /* UserSignupViewModel.swift */; };
 		E99B3A932CA979A2000847E8 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A922CA979A2000847E8 /* ImagePicker.swift */; };
+		E99B3A962CA97C07000847E8 /* PermissionAlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A952CA97C07000847E8 /* PermissionAlertModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		E99B3A8E2CA976BC000847E8 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
 		E99B3A902CA97983000847E8 /* UserSignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignupViewModel.swift; sourceTree = "<group>"; };
 		E99B3A922CA979A2000847E8 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		E99B3A952CA97C07000847E8 /* PermissionAlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionAlertModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 		E99B3A412CA814C4000847E8 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				E99B3A942CA97BF3000847E8 /* ViewModifiers */,
 				E99B3A422CA814D9000847E8 /* PrimaryButton.swift */,
 				E99B3A442CA82866000847E8 /* FloatingTextField.swift */,
 				E99B3A822CA96CE9000847E8 /* UploadButton.swift */,
@@ -316,6 +319,14 @@
 			path = Permissions;
 			sourceTree = "<group>";
 		};
+		E99B3A942CA97BF3000847E8 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				E99B3A952CA97C07000847E8 /* PermissionAlertModifier.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -400,6 +411,7 @@
 				E99B3A432CA814DA000847E8 /* PrimaryButton.swift in Sources */,
 				E99B3A8B2CA9733D000847E8 /* String+Empty.swift in Sources */,
 				E99B3A8F2CA976BC000847E8 /* PermissionManager.swift in Sources */,
+				E99B3A962CA97C07000847E8 /* PermissionAlertModifier.swift in Sources */,
 				E99B3A452CA82866000847E8 /* FloatingTextField.swift in Sources */,
 				E99B3A5A2CA8547D000847E8 /* APIEndpoint.swift in Sources */,
 				E99B3A522CA85467000847E8 /* HTTPClient.swift in Sources */,

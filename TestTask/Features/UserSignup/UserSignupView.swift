@@ -15,26 +15,42 @@ struct UserSignupView: View {
             UploadButton(selectedImage: viewModel.selectedImage, isValid: viewModel.isPhotoValid) {
                 viewModel.showActionSheet = true
             }
-            .confirmationDialog("Select Photo", isPresented: $viewModel.showActionSheet, titleVisibility: .visible) {
-                Button("Camera") {
-                    Task {
-                        await viewModel.handlePermissionCheck(for: .camera)
-                    }
-                }
-                Button("Gallery") {
-                    Task {
-                        await viewModel.handlePermissionCheck(for: .photoLibrary)
-                    }
-                }
-                Button("Cancel", role: .cancel) { }
+            .confirmationDialog(Constants.Strings.dialogTitle, isPresented: $viewModel.showActionSheet, titleVisibility: .visible) {
+                confirmationDialogButtons
             }
             .sheet(isPresented: $viewModel.showImagePicker) {
                 ImagePicker(sourceType: viewModel.sourceType, selectedImage: $viewModel.selectedImage)
             }
-            .alert(isPresented: $viewModel.showSettingsAlert) {
-                Alert(title: Text("Permission Denied"), message: Text("Permission Denied"), dismissButton: .default(Text("OK")))
-            }
+            .permissionAlert(showAlert: $viewModel.showSettingsAlert)
         }
         .padding()
+    }
+}
+
+private extension UserSignupView {
+    @ViewBuilder
+    private var confirmationDialogButtons: some View {
+        Button(Constants.Strings.camera) {
+            Task {
+                await viewModel.handlePermissionCheck(for: .camera)
+            }
+        }
+        Button(Constants.Strings.library) {
+            Task {
+                await viewModel.handlePermissionCheck(for: .photoLibrary)
+            }
+        }
+        Button(Constants.Strings.cancel, role: .cancel) { }
+    }
+}
+
+
+private enum Constants {
+    enum Strings {
+        static let camera = "Camera"
+        static let library = "Library"
+        static let cancel = "Cancel"
+        static let dialogTitle = "Select Photo"
+        
     }
 }
