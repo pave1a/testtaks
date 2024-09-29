@@ -67,6 +67,8 @@ struct AppStyles {
 
         /// Nunito-SemiBold, size: 18
         static let semiBoldBody1 = Font.custom(semiBoldFont, size: 18)
+        /// Nunito-SemiBold, size: 16
+        static let semiBoldBody2 = Font.custom(semiBoldFont, size: 16)
     }
 }
 

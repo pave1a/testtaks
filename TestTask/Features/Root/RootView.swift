@@ -19,7 +19,7 @@ struct RootView: View {
                 }
                 .tag(DashboardTabItem.users)
 
-            UsersListView(viewModel: UsersListViewModel(usersBaseService: UsersBaseService()))
+            UserSignupView()
                 .tabItem {
                     DashboardTabItemView(tab: .signUp, selected: $selectedTab)
                 }

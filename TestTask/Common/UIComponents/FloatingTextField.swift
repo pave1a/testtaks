@@ -33,7 +33,7 @@ struct FloatingTextField: View {
     let fieldType: TextFieldType
     let validationMessage: String
     let isValid: Bool
-    let onSubmit: () -> Void
+    let onSubmit: EmptyClosure
 
     init(
         text: Binding<String>,
@@ -41,7 +41,7 @@ struct FloatingTextField: View {
         title: String,
         validationMessage: String,
         isValid: Bool,
-        onSubmit: @escaping () -> Void
+        onSubmit: @escaping EmptyClosure
     ) {
         self._text = text
         self.fieldType = fieldType
