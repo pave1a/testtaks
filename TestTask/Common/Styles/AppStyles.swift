@@ -32,13 +32,15 @@ struct AppStyles {
     struct Colors {
         // Main Palette
         static let primary = Color(red: 244/255, green: 224/255, blue: 64/255)
-        static let secondary = Color(red: 0/255, green: 189/255, blue: 211/255)
+        static let secondary = Color(red: 0/255, green: 189/255, blue: 211/255, opacity: 0.83)
         static let background = Color(red: 255/255, green: 255/255, blue: 255/255)
 
         /// Main black text color. Common use cases: enabled button text, textField, navigation bar, label.
         static let primaryText = Color(red: 0/255, green: 0/255, blue: 0/255)
         /// Secondary text color: black with 48% opacity. Common use cases: disabled button text, placeholders, and other secondary text elements.
         static let secondaryText = Color(red: 0/255, green: 0/255, blue: 0/255, opacity: 0.48)
+        /// Secondary text color: TabView items tint color
+        static let secondaryDarkText = Color(red: 0/255, green: 0/255, blue: 0/255, opacity: 0.6)
         /// Border color. Common use case: textField border.
         static let border = Color(red: 208/255, green: 207/255, blue: 207/255, opacity: 0.82)
         /// Common use case: disabled button background.

@@ -30,6 +30,9 @@
 		E99B3A652CA86B51000847E8 /* LinkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A642CA86B51000847E8 /* LinkResponse.swift */; };
 		E99B3A682CA8747F000847E8 /* UsersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A672CA8747F000847E8 /* UsersListViewModel.swift */; };
 		E99B3A6C2CA8764A000847E8 /* UserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A6B2CA8764A000847E8 /* UserCard.swift */; };
+		E99B3A7C2CA95C93000847E8 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A7B2CA95C93000847E8 /* RootView.swift */; };
+		E99B3A7E2CA96330000847E8 /* DashboardTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A7D2CA96330000847E8 /* DashboardTabItem.swift */; };
+		E99B3A802CA96B28000847E8 /* DashboardTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A7F2CA96B28000847E8 /* DashboardTabItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +61,9 @@
 		E99B3A642CA86B51000847E8 /* LinkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkResponse.swift; sourceTree = "<group>"; };
 		E99B3A672CA8747F000847E8 /* UsersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewModel.swift; sourceTree = "<group>"; };
 		E99B3A6B2CA8764A000847E8 /* UserCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCard.swift; sourceTree = "<group>"; };
+		E99B3A7B2CA95C93000847E8 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		E99B3A7D2CA96330000847E8 /* DashboardTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabItem.swift; sourceTree = "<group>"; };
+		E99B3A7F2CA96B28000847E8 /* DashboardTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +213,8 @@
 		E99B3A662CA873E6000847E8 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E99B3A7A2CA95C45000847E8 /* Root */,
+				E99B3A792CA95C3A000847E8 /* UserSignup */,
 				E99B3A692CA87516000847E8 /* UsersList */,
 			);
 			path = Features;
@@ -228,6 +236,31 @@
 				E99B3A6B2CA8764A000847E8 /* UserCard.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		E99B3A792CA95C3A000847E8 /* UserSignup */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserSignup;
+			sourceTree = "<group>";
+		};
+		E99B3A7A2CA95C45000847E8 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				E99B3A7B2CA95C93000847E8 /* RootView.swift */,
+				E99B3A812CA96B4A000847E8 /* TabView */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		E99B3A812CA96B4A000847E8 /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				E99B3A7D2CA96330000847E8 /* DashboardTabItem.swift */,
+				E99B3A7F2CA96B28000847E8 /* DashboardTabItemView.swift */,
+			);
+			path = TabView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +339,7 @@
 				E99B3A3F2CA80C86000847E8 /* AppStyles.swift in Sources */,
 				E99B3A5F2CA854E4000847E8 /* UsersBaseConfig.swift in Sources */,
 				E99B3A2A2CA800BE000847E8 /* UsersListView.swift in Sources */,
+				E99B3A7C2CA95C93000847E8 /* RootView.swift in Sources */,
 				E99B3A502CA85460000847E8 /* Endpoint.swift in Sources */,
 				E99B3A632CA86A43000847E8 /* UserResponse.swift in Sources */,
 				E99B3A432CA814DA000847E8 /* PrimaryButton.swift in Sources */,
@@ -318,6 +352,8 @@
 				E99B3A682CA8747F000847E8 /* UsersListViewModel.swift in Sources */,
 				E99B3A5D2CA854D1000847E8 /* UsersBaseService.swift in Sources */,
 				E99B3A542CA8546D000847E8 /* HTTPMethod.swift in Sources */,
+				E99B3A7E2CA96330000847E8 /* DashboardTabItem.swift in Sources */,
+				E99B3A802CA96B28000847E8 /* DashboardTabItemView.swift in Sources */,
 				E99B3A6C2CA8764A000847E8 /* UserCard.swift in Sources */,
 				E99B3A562CA85472000847E8 /* NetworkError.swift in Sources */,
 				E99B3A582CA85478000847E8 /* APIConfiguration.swift in Sources */,

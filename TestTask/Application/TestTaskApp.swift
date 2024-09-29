@@ -12,7 +12,8 @@ struct TestTaskApp: App {
     var body: some Scene {
         WindowGroup {
             let usersBaseService = UsersBaseService()
-            UsersListView(viewModel: UsersListViewModel(usersBaseService: usersBaseService))
+//            UsersListView(viewModel: UsersListViewModel(usersBaseService: usersBaseService))
+            RootView()
         }
     }
 }
