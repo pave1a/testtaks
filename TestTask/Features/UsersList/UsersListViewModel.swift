@@ -9,38 +9,48 @@ import SwiftUI
 
 class UsersListViewModel: ObservableObject {
     @Published var users = [User]()
+    @Published var isLoading = false
 
-    private let userService: UsersBaseProtocol
+    private let usersBaseService: UsersBaseProtocol
 
+    private let countToFetch = 6
     private var currentPage = 1
     private var hasMorePages = true
 
-    var isLoading = false
-
-    init(userService: UsersBaseProtocol = UsersBaseService()) {
-        self.userService = userService
+    init(usersBaseService: UsersBaseProtocol) {
+        self.usersBaseService = usersBaseService
     }
-    
+
     func fetchUsers() {
         guard !isLoading, hasMorePages else { return }
         isLoading = true
 
         Task {
-            do {
-                let fetchedUsersResponse = try await userService.getUsers(page: currentPage, count: 6)
+            defer {
                 DispatchQueue.main.async {
-                    let sortedUsers = fetchedUsersResponse.users.sorted { $0.registrationTimestamp > $1.registrationTimestamp }
-                    self.users.append(contentsOf: sortedUsers)
-
-                    self.currentPage += 1
-                    self.hasMorePages = self.currentPage <= fetchedUsersResponse.totalPages
-                    
                     self.isLoading = false
+                }
+            }
+
+            do {
+                let fetchedUsersResponse = try await usersBaseService.getUsers(page: currentPage, count: countToFetch)
+
+                if fetchedUsersResponse.users.isEmpty || currentPage > fetchedUsersResponse.totalPages {
+                    hasMorePages = false
+                } else {
+                    appendSortedUsers(fetchedUsersResponse.users)
+                    currentPage += 1
                 }
             } catch {
                 print("Error fetching users: \(error)")
-                isLoading = false
             }
+        }
+    }
+
+    private func appendSortedUsers(_ newUsers: [User]) {
+        let sortedUsers = newUsers.sorted { $0.registrationTimestamp > $1.registrationTimestamp }
+        DispatchQueue.main.async {
+            self.users.append(contentsOf: sortedUsers)
         }
     }
 }

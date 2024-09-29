@@ -11,7 +11,8 @@ import SwiftUI
 struct TestTaskApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let usersBaseService = UsersBaseService()
+            UsersListView(viewModel: UsersListViewModel(usersBaseService: usersBaseService))
         }
     }
 }
