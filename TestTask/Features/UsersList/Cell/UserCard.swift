@@ -9,6 +9,7 @@ import SwiftUI
 
 private enum Constants {
     static let imageSize = CGFloat(50) // Size from Figma
+    static let placeholderName = "photoPlaceholder"
 }
 
 struct UserCard: View {
@@ -22,8 +23,8 @@ struct UserCard: View {
                     .frame(width: Constants.imageSize, height: Constants.imageSize)
                     .clipShape(Circle())
             } placeholder: {
-                Circle()
-                    .fill(AppStyles.Colors.disabledBackground)
+                Image(Constants.placeholderName)
+                    .resizable()
                     .frame(width: Constants.imageSize, height: Constants.imageSize)
             }
 
