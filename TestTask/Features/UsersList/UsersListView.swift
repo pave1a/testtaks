@@ -17,22 +17,32 @@ struct UsersListView: View {
     }
 
     var body: some View {
-        VStack {
-            List(viewModel.users) { user in
-                UserCard(user: user)
-                    .listRowBackground(Color.clear)
-                    .onAppear {
-                        if user == viewModel.users.last {
-                            viewModel.fetchUsers()
+        NavigationView {
+            VStack {
+                List(viewModel.users) { user in
+                    UserCard(user: user)
+                        .listRowBackground(Color.clear)
+                        .onAppear {
+                            if user == viewModel.users.last {
+                                viewModel.fetchUsers()
+                            }
                         }
-                    }
-                // TODO: - Add Loader
+                    // TODO: - Add Loader
+                }
+                .listStyle(.plain)
+                .onAppear {
+                    viewModel.fetchUsers()
+                }
             }
-            .listStyle(.plain)
-            .onAppear {
-                viewModel.fetchUsers()
-            }
+            .navigationTitle(Constants.Strings.title)
+            .navigationBarTitleDisplayMode(.inline)
         }
+    }
+}
+
+private enum Constants {
+    enum Strings {
+        static let title = "Working with GET request"
     }
 }
 
