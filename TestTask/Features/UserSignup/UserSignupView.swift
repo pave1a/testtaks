@@ -46,7 +46,7 @@ struct UserSignupView: View {
                             isValid: $viewModel.isPhoneNumberValid
                         )
                     }
-                    .padding(.top, 16)
+                    .padding(.top, AppStyles.Spacing.l)
                     
                     RadioGroupView(
                         title: Constants.Strings.radioGroupTitle,
@@ -54,7 +54,7 @@ struct UserSignupView: View {
                         label: { $0.name },
                         selectedOption: $viewModel.selectedPositions
                     )
-                    .padding(.top, 8)
+                    .padding(.top, AppStyles.Spacing.s)
 
                     UploadButton(
                         selectedImage: viewModel.selectedImage,
@@ -63,7 +63,7 @@ struct UserSignupView: View {
                     ) {
                         viewModel.showActionSheet = true
                     }
-                    .padding(.top, 16)
+                    .padding(.top, AppStyles.Spacing.l)
 
                     HStack {
                         Spacer()
@@ -75,9 +75,9 @@ struct UserSignupView: View {
 
                         Spacer()
                     }
-                    .padding(.top, 16)
+                    .padding(.top, AppStyles.Spacing.l)
                 }
-                .padding(.horizontal, 16)
+                .padding(.horizontal, AppStyles.Spacing.l)
                 .background(AppStyles.Colors.background)
                 .navigationTitle(Constants.Strings.title)
                 .navigationBarTitleDisplayMode(.inline)

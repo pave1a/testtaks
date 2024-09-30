@@ -7,15 +7,6 @@
 
 import SwiftUI
 
-struct TextFieldData: Identifiable {
-    let id = UUID()
-    var text: Binding<String>
-    var title: String
-    var fieldType: TextFieldType
-    var validationMessage: Binding<String?>
-    var isValid: Binding<Bool>
-}
-
 class UserSignupViewModel: ObservableObject {
     @Published var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @Published var selectedImage: UIImage?
@@ -44,12 +35,10 @@ class UserSignupViewModel: ObservableObject {
     @Published var positions: [Position] = []
     @Published var selectedPositions: Position?
 
-    private let maxImageSize: Int = 4 * 1024 * 1024
-
     private let usersBaseService: UsersBaseProtocol
 
     var isButtonDisabled: Bool {
-        name.isEmpty || email.isEmpty || phoneNumber == "+380"
+        name.isEmpty || email.isEmpty || phoneNumber == Constants.numberPrefix
     }
 
     init(usersBaseService: UsersBaseProtocol) {
@@ -120,7 +109,7 @@ private extension UserSignupViewModel {
 
     func isImageUnderSizeLimit(_ image: UIImage) -> Bool {
         if let imageData = image.jpegData(compressionQuality: 1.0) {
-            return imageData.count <= maxImageSize
+            return imageData.count <= Constants.maxImageSize
         }
 
         return false
@@ -134,6 +123,9 @@ private extension UserSignupViewModel {
 
         case .name:
             guard !text.isEmpty else { return "Required field" }
+            if name.count < Constants.minNameLength || name.count > Constants.maxNameLength {
+                return "Name must be between 2 and 60 characters long."
+            }
             return TextFieldValidator.isValidName(text) ? nil : "Invalid name"
 
         case .phone:
@@ -148,11 +140,17 @@ private extension UserSignupViewModel {
                 let positionsResponse = try await usersBaseService.getPositions()
                 await MainActor.run {
                     self.positions = positionsResponse.positions
-                    print(positions)
                 }
             } catch {
                 print("Failed to fetch positions: \(error.localizedDescription)")
             }
         }
     }
+}
+
+private enum Constants {
+    static let minNameLength = 2
+    static let maxNameLength = 60
+    static let maxImageSize: Int = 5 * 1024 * 1024
+    static let numberPrefix = "+380" 
 }
