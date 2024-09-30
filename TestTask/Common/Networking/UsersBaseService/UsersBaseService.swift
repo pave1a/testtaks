@@ -10,6 +10,7 @@ import Foundation
 protocol UsersBaseProtocol {
     func getUsers(page: Int, count: Int) async throws -> UsersResponse
     func getPositions() async throws -> PositionResponse
+    func getToken() async throws -> String
 }
 
 final class UsersBaseService: UsersBaseProtocol {
@@ -54,6 +55,26 @@ final class UsersBaseService: UsersBaseProtocol {
             return response
         } catch {
             throw NetworkError.apiError(message: "Failed to fetch positions")
+        }
+    }
+
+    func getToken() async throws -> String {
+        let endpoint = Endpoint(
+            path: UsersBaseAPIEndpoint.getToken.path,
+            method: .GET,
+            headers: config.defaultHeaders,
+            queryParams: nil,
+            baseURL: config.baseURL
+        )
+
+        do {
+            let response: TokenResponse = try await client.sendRequest(endpoint: endpoint, responseModel: TokenResponse.self)
+            guard response.success else {
+                throw NetworkError.apiError(message: "Failed to fetch token")
+            }
+            return response.token
+        } catch {
+            throw NetworkError.apiError(message: "Failed to fetch token")
         }
     }
 }

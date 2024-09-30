@@ -10,6 +10,7 @@ import Foundation
 enum UsersBaseAPIEndpoint {
     case getUsers(page: Int, count: Int)
     case getPositions
+    case getToken
     
     var path: String {
         switch self {
@@ -17,6 +18,8 @@ enum UsersBaseAPIEndpoint {
             return "/users"
         case .getPositions:
             return "/positions"
+        case .getToken:
+            return "/token"
         }
     }
 }

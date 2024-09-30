@@ -45,6 +45,7 @@
 		E9B38A872CA9EED200E91121 /* PositionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B38A862CA9EED200E91121 /* PositionsResponse.swift */; };
 		E9B38A892CA9F24200E91121 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B38A882CA9F24200E91121 /* RootViewModel.swift */; };
 		E9B38A8B2CA9F92800E91121 /* RadioGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B38A8A2CA9F92800E91121 /* RadioGroupView.swift */; };
+		E9B38A8F2CAA234200E91121 /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B38A8E2CAA234100E91121 /* TokenResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		E9B38A862CA9EED200E91121 /* PositionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionsResponse.swift; sourceTree = "<group>"; };
 		E9B38A882CA9F24200E91121 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		E9B38A8A2CA9F92800E91121 /* RadioGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioGroupView.swift; sourceTree = "<group>"; };
+		E9B38A8E2CAA234100E91121 /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,10 +211,11 @@
 		E99B3A492CA844EF000847E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E99B3A4A2CA8459D000847E8 /* UsersResponse.swift */,
-				E99B3A622CA86A43000847E8 /* UserResponse.swift */,
 				E99B3A642CA86B51000847E8 /* LinkResponse.swift */,
 				E9B38A862CA9EED200E91121 /* PositionsResponse.swift */,
+				E9B38A8E2CAA234100E91121 /* TokenResponse.swift */,
+				E99B3A622CA86A43000847E8 /* UserResponse.swift */,
+				E99B3A4A2CA8459D000847E8 /* UsersResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				E99B3A882CA97320000847E8 /* Aliases.swift in Sources */,
 				E99B3A502CA85460000847E8 /* Endpoint.swift in Sources */,
 				E99B3A632CA86A43000847E8 /* UserResponse.swift in Sources */,
+				E9B38A8F2CAA234200E91121 /* TokenResponse.swift in Sources */,
 				E99B3A852CA96D24000847E8 /* UserSignupView.swift in Sources */,
 				E99B3A432CA814DA000847E8 /* PrimaryButton.swift in Sources */,
 				E99B3A8B2CA9733D000847E8 /* String+Empty.swift in Sources */,
