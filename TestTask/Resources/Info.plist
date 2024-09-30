@@ -13,5 +13,12 @@
     <string>Permission is required to use the camera.</string>
     <key>NSPhotoLibraryUsageDescription</key>
     <string>Permission is required to use the library.</string>
+    <key>UILaunchScreen</key>
+    <dict>
+        <key>UIColorName</key>
+        <string>splashBackgroundColor</string>
+        <key>UIImageName</key>
+        <string>appLogo</string>
+    </dict>
 </dict>
 </plist>
