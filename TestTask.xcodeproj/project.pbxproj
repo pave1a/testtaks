@@ -49,6 +49,7 @@
 		E9B38A912CAA283600E91121 /* RegistrationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B38A902CAA283600E91121 /* RegistrationResponse.swift */; };
 		E9B38A942CAA983F00E91121 /* UserRegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B38A932CAA983F00E91121 /* UserRegistrationRequest.swift */; };
 		E9B38A962CAA9BA300E91121 /* StatusScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B38A952CAA9BA300E91121 /* StatusScreen.swift */; };
+		E9B38A992CAAB23E00E91121 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B38A982CAAB23E00E91121 /* ReachabilityManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		E9B38A902CAA283600E91121 /* RegistrationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationResponse.swift; sourceTree = "<group>"; };
 		E9B38A932CAA983F00E91121 /* UserRegistrationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegistrationRequest.swift; sourceTree = "<group>"; };
 		E9B38A952CAA9BA300E91121 /* StatusScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusScreen.swift; sourceTree = "<group>"; };
+		E9B38A982CAAB23E00E91121 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +328,7 @@
 		E99B3A8C2CA97698000847E8 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				E9B38A972CAAB23200E91121 /* Reachability */,
 				E99B3A972CA99E37000847E8 /* Validator */,
 				E99B3A862CA97318000847E8 /* Aliases */,
 				E99B3A892CA97334000847E8 /* Extensions */,
@@ -365,6 +368,14 @@
 				E99B3A602CA86A06000847E8 /* APIRequestParams.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		E9B38A972CAAB23200E91121 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				E9B38A982CAAB23E00E91121 /* ReachabilityManager.swift */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,6 +463,7 @@
 				E99B3A632CA86A43000847E8 /* UserResponse.swift in Sources */,
 				E9B38A8F2CAA234200E91121 /* TokenResponse.swift in Sources */,
 				E99B3A852CA96D24000847E8 /* UserSignupView.swift in Sources */,
+				E9B38A992CAAB23E00E91121 /* ReachabilityManager.swift in Sources */,
 				E99B3A432CA814DA000847E8 /* PrimaryButton.swift in Sources */,
 				E99B3A8B2CA9733D000847E8 /* String+Empty.swift in Sources */,
 				E9B38A942CAA983F00E91121 /* UserRegistrationRequest.swift in Sources */,
