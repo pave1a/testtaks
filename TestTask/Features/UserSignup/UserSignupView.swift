@@ -8,28 +8,100 @@
 import SwiftUI
 
 struct UserSignupView: View {
-    @StateObject private var viewModel = UserSignupViewModel()
+    @StateObject private var viewModel: UserSignupViewModel
+
+    init(viewModel: UserSignupViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
 
     var body: some View {
-        VStack {
-            UploadButton(selectedImage: viewModel.selectedImage, isValid: viewModel.isPhotoValid) {
-                viewModel.showActionSheet = true
+        NavigationView {
+            ScrollView {
+                VStack(alignment: .leading) {
+                    Spacer()
+
+                    VStack(spacing: AppStyles.Spacing.l) {
+                        // TODO: Create Data Source and remove duplication
+                        FloatingTextField(
+                            text: $viewModel.name,
+                            title: "Name",
+                            fieldType: .name,
+                            validationMessage: $viewModel.nameErrorMessage,
+                            isValid: $viewModel.isNameValid
+                        )
+                        
+                        FloatingTextField(
+                            text: $viewModel.email,
+                            title: "Email",
+                            fieldType: .email,
+                            validationMessage: $viewModel.emailErrorMessage,
+                            isValid: $viewModel.isEmailValid
+                        )
+                        
+                        FloatingTextField(
+                            text: $viewModel.phoneNumber,
+                            title: "Phone number",
+                            fieldType: .phone,
+                            validationMessage: $viewModel.phoneNumberErrorMessage,
+                            isValid: $viewModel.isPhoneNumberValid
+                        )
+                    }
+                    .padding(.top, 16)
+                    
+                    RadioGroupView(
+                        title: Constants.Strings.radioGroupTitle,
+                        options: viewModel.positions,
+                        label: { $0.name },
+                        selectedOption: $viewModel.selectedPositions
+                    )
+                    .padding(.top, 8)
+
+                    UploadButton(
+                        selectedImage: viewModel.selectedImage,
+                        isValid: viewModel.isImageValid,
+                        validationMessage: viewModel.photoValidationErrorMessage
+                    ) {
+                        viewModel.showActionSheet = true
+                    }
+                    .padding(.top, 16)
+
+                    HStack {
+                        Spacer()
+
+                        PrimaryButton(title: Constants.Strings.signUpButton, disabled: viewModel.isButtonDisabled) {
+                            viewModel.validateData()
+                            hideKeyboard()
+                        }
+
+                        Spacer()
+                    }
+                    .padding(.top, 16)
+                }
+                .padding(.horizontal, 16)
+                .background(AppStyles.Colors.background)
+                .navigationTitle(Constants.Strings.title)
+                .navigationBarTitleDisplayMode(.inline)
+                .onTapGesture {
+                    hideKeyboard()
+                }
+                .confirmationDialog(Constants.Strings.dialogTitle, isPresented: $viewModel.showActionSheet, titleVisibility: .visible) {
+                    confirmationDialogButtons
+                }
+                .sheet(isPresented: $viewModel.showImagePicker) {
+                    ImagePicker(sourceType: viewModel.sourceType, selectedImage: $viewModel.selectedImage)
+                        .onDisappear {
+                            viewModel.validateImage()
+                        }
+                }
+                .permissionAlert(showAlert: $viewModel.showSettingsAlert)
             }
-            .confirmationDialog(Constants.Strings.dialogTitle, isPresented: $viewModel.showActionSheet, titleVisibility: .visible) {
-                confirmationDialogButtons
-            }
-            .sheet(isPresented: $viewModel.showImagePicker) {
-                ImagePicker(sourceType: viewModel.sourceType, selectedImage: $viewModel.selectedImage)
-            }
-            .permissionAlert(showAlert: $viewModel.showSettingsAlert)
         }
-        .padding()
     }
 }
 
 private extension UserSignupView {
     @ViewBuilder
-    private var confirmationDialogButtons: some View {
+    var confirmationDialogButtons: some View {
         Button(Constants.Strings.camera) {
             Task {
                 await viewModel.handlePermissionCheck(for: .camera)
@@ -42,8 +114,11 @@ private extension UserSignupView {
         }
         Button(Constants.Strings.cancel, role: .cancel) { }
     }
-}
 
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
 
 private enum Constants {
     enum Strings {
@@ -51,6 +126,8 @@ private enum Constants {
         static let library = "Library"
         static let cancel = "Cancel"
         static let dialogTitle = "Select Photo"
-        
+        static let signUpButton = "Sign Up"
+        static let radioGroupTitle = "Select position"
+        static let title = "Working with POST request"
     }
 }

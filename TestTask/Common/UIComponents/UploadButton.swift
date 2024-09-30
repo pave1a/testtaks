@@ -12,6 +12,7 @@ private enum Constants {
     static let borderWidth = AppStyles.Spacing.xxxs
     static let cornerRadius = AppStyles.Spacing.xs
     static let horizontalSpacing = AppStyles.Spacing.l
+    static let frameHeigh = CGFloat(56)
 
     enum Strings {
         static let title = "Upload photo"
@@ -38,7 +39,7 @@ struct UploadButton: View {
     }
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             HStack {
                 Text(Constants.Strings.title)
                     .foregroundColor(tintColor)
@@ -52,13 +53,15 @@ struct UploadButton: View {
                         .scaledToFill()
                         .frame(width: Constants.imageSize, height: Constants.imageSize)
                         .clipShape(Circle())
+                        .overlay(Circle().stroke(AppStyles.Colors.border, lineWidth: Constants.borderWidth))
                 } else {
                     Text(Constants.Strings.actionString)
                         .foregroundColor(AppStyles.Colors.secondary)
                         .font(AppStyles.Fonts.semiBoldBody2)
                 }
             }
-            .padding()
+            .padding(AppStyles.Spacing.l)
+            .frame(height: Constants.frameHeigh)
             .overlay(RoundedRectangle(cornerRadius: Constants.cornerRadius).stroke(tintColor, lineWidth: Constants.borderWidth))
             .onTapGesture(perform: action)
 

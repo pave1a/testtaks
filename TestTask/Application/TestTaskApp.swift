@@ -9,11 +9,30 @@ import SwiftUI
 
 @main
 struct TestTaskApp: App {
+
+    init() {
+        setupNavigationBarAppearance()
+    }
+
     var body: some Scene {
         WindowGroup {
-            let usersBaseService = UsersBaseService()
-//            UsersListView(viewModel: UsersListViewModel(usersBaseService: usersBaseService))
-            RootView()
+            RootView(viewModel: RootViewModel(usersBaseService: UsersBaseService()))
         }
+    }
+
+    func setupNavigationBarAppearance() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(AppStyles.Colors.primary)
+
+        appearance.titleTextAttributes = [
+            .foregroundColor: UIColor(AppStyles.Colors.primaryText),
+            .font: UIFont(name: "Nunito-Regular", size: 20)!
+        ]
+
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().tintColor = .black
     }
 }

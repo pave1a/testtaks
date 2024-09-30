@@ -9,6 +9,7 @@ import Foundation
 
 protocol UsersBaseProtocol {
     func getUsers(page: Int, count: Int) async throws -> UsersResponse
+    func getPositions() async throws -> PositionResponse
 }
 
 final class UsersBaseService: UsersBaseProtocol {
@@ -24,7 +25,7 @@ final class UsersBaseService: UsersBaseProtocol {
         let params = UsersParams(page: page, count: count)
 
         let endpoint = Endpoint(
-            path: UserAPIEndpoint.getUsers(page: page, count: count).path,
+            path: UsersBaseAPIEndpoint.getUsers(page: page, count: count).path,
             method: .GET,
             headers: config.defaultHeaders,
             queryParams: params.toDictionary(),
@@ -36,6 +37,23 @@ final class UsersBaseService: UsersBaseProtocol {
             return response
         } catch {
             throw NetworkError.apiError(message: "Failed to fetch users")
+        }
+    }
+
+    func getPositions() async throws -> PositionResponse {
+        let endpoint = Endpoint(
+            path: UsersBaseAPIEndpoint.getPositions.path,
+            method: .GET,
+            headers: config.defaultHeaders,
+            queryParams: nil,
+            baseURL: config.baseURL
+        )
+
+        do {
+            let response: PositionResponse = try await client.sendRequest(endpoint: endpoint, responseModel: PositionResponse.self)
+            return response
+        } catch {
+            throw NetworkError.apiError(message: "Failed to fetch positions")
         }
     }
 }

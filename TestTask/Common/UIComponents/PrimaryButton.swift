@@ -22,13 +22,13 @@ private enum Constants {
 
 struct PrimaryButton: View {
     private let title: String
-    private let action: EmptyClosure
     private var disabled: Bool
+    private let action: EmptyClosure
 
-    init(title: String, action: @escaping EmptyClosure, disabled: Bool = false) {
+    init(title: String, disabled: Bool = false, action: @escaping EmptyClosure) {
         self.title = title
-        self.action = action
         self.disabled = disabled
+        self.action = action
     }
 
     var body: some View {

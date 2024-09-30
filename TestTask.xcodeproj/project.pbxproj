@@ -41,6 +41,10 @@
 		E99B3A912CA97983000847E8 /* UserSignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A902CA97983000847E8 /* UserSignupViewModel.swift */; };
 		E99B3A932CA979A2000847E8 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A922CA979A2000847E8 /* ImagePicker.swift */; };
 		E99B3A962CA97C07000847E8 /* PermissionAlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A952CA97C07000847E8 /* PermissionAlertModifier.swift */; };
+		E99B3A992CA99E4D000847E8 /* TextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99B3A982CA99E4D000847E8 /* TextFieldValidator.swift */; };
+		E9B38A872CA9EED200E91121 /* PositionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B38A862CA9EED200E91121 /* PositionsResponse.swift */; };
+		E9B38A892CA9F24200E91121 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B38A882CA9F24200E91121 /* RootViewModel.swift */; };
+		E9B38A8B2CA9F92800E91121 /* RadioGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B38A8A2CA9F92800E91121 /* RadioGroupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +84,10 @@
 		E99B3A902CA97983000847E8 /* UserSignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignupViewModel.swift; sourceTree = "<group>"; };
 		E99B3A922CA979A2000847E8 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		E99B3A952CA97C07000847E8 /* PermissionAlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionAlertModifier.swift; sourceTree = "<group>"; };
+		E99B3A982CA99E4D000847E8 /* TextFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldValidator.swift; sourceTree = "<group>"; };
+		E9B38A862CA9EED200E91121 /* PositionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionsResponse.swift; sourceTree = "<group>"; };
+		E9B38A882CA9F24200E91121 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		E9B38A8A2CA9F92800E91121 /* RadioGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioGroupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +191,7 @@
 				E99B3A442CA82866000847E8 /* FloatingTextField.swift */,
 				E99B3A822CA96CE9000847E8 /* UploadButton.swift */,
 				E99B3A922CA979A2000847E8 /* ImagePicker.swift */,
+				E9B38A8A2CA9F92800E91121 /* RadioGroupView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -203,6 +212,7 @@
 				E99B3A4A2CA8459D000847E8 /* UsersResponse.swift */,
 				E99B3A622CA86A43000847E8 /* UserResponse.swift */,
 				E99B3A642CA86B51000847E8 /* LinkResponse.swift */,
+				E9B38A862CA9EED200E91121 /* PositionsResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				E99B3A7B2CA95C93000847E8 /* RootView.swift */,
+				E9B38A882CA9F24200E91121 /* RootViewModel.swift */,
 				E99B3A812CA96B4A000847E8 /* TabView */,
 			);
 			path = Root;
@@ -304,6 +315,7 @@
 		E99B3A8C2CA97698000847E8 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				E99B3A972CA99E37000847E8 /* Validator */,
 				E99B3A862CA97318000847E8 /* Aliases */,
 				E99B3A892CA97334000847E8 /* Extensions */,
 				E99B3A8D2CA976A2000847E8 /* Permissions */,
@@ -325,6 +337,14 @@
 				E99B3A952CA97C07000847E8 /* PermissionAlertModifier.swift */,
 			);
 			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		E99B3A972CA99E37000847E8 /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				E99B3A982CA99E4D000847E8 /* TextFieldValidator.swift */,
+			);
+			path = Validator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,6 +422,7 @@
 				E99B3A652CA86B51000847E8 /* LinkResponse.swift in Sources */,
 				E99B3A3F2CA80C86000847E8 /* AppStyles.swift in Sources */,
 				E99B3A5F2CA854E4000847E8 /* UsersBaseConfig.swift in Sources */,
+				E99B3A992CA99E4D000847E8 /* TextFieldValidator.swift in Sources */,
 				E99B3A2A2CA800BE000847E8 /* UsersListView.swift in Sources */,
 				E99B3A7C2CA95C93000847E8 /* RootView.swift in Sources */,
 				E99B3A882CA97320000847E8 /* Aliases.swift in Sources */,
@@ -417,8 +438,10 @@
 				E99B3A522CA85467000847E8 /* HTTPClient.swift in Sources */,
 				E99B3A612CA86A06000847E8 /* APIRequestParams.swift in Sources */,
 				E99B3A282CA800BE000847E8 /* TestTaskApp.swift in Sources */,
+				E9B38A892CA9F24200E91121 /* RootViewModel.swift in Sources */,
 				E99B3A932CA979A2000847E8 /* ImagePicker.swift in Sources */,
 				E99B3A912CA97983000847E8 /* UserSignupViewModel.swift in Sources */,
+				E9B38A872CA9EED200E91121 /* PositionsResponse.swift in Sources */,
 				E99B3A4B2CA8459D000847E8 /* UsersResponse.swift in Sources */,
 				E99B3A682CA8747F000847E8 /* UsersListViewModel.swift in Sources */,
 				E99B3A832CA96CE9000847E8 /* UploadButton.swift in Sources */,
@@ -426,6 +449,7 @@
 				E99B3A542CA8546D000847E8 /* HTTPMethod.swift in Sources */,
 				E99B3A7E2CA96330000847E8 /* DashboardTabItem.swift in Sources */,
 				E99B3A802CA96B28000847E8 /* DashboardTabItemView.swift in Sources */,
+				E9B38A8B2CA9F92800E91121 /* RadioGroupView.swift in Sources */,
 				E99B3A6C2CA8764A000847E8 /* UserCard.swift in Sources */,
 				E99B3A562CA85472000847E8 /* NetworkError.swift in Sources */,
 				E99B3A582CA85478000847E8 /* APIConfiguration.swift in Sources */,
