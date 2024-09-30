@@ -17,10 +17,10 @@ struct Endpoint {
 
     init(
         path: String,
-        method: HTTPMethod,
+        method: HTTPMethod = .GET,
         headers: [String : String],
         body: Data? = nil,
-        queryParams: [String : String]?,
+        queryParams: [String : String]? = nil,
         baseURL: String
     ) {
         self.path = path

@@ -17,19 +17,20 @@ private enum Constants {
     enum Strings {
         static let title = "Upload photo"
         static let actionString = "Upload"
+        static let defaultErrorMessage = "Required field"
     }
 }
 
 struct UploadButton: View {
     let selectedImage: UIImage?
     let isValid: Bool
-    let validationMessage: String
+    let validationMessage: String?
     let action: EmptyClosure
 
     init(
         selectedImage: UIImage?,
         isValid: Bool,
-        validationMessage: String = .empty,
+        validationMessage: String?,
         action: @escaping EmptyClosure
     ) {
         self.selectedImage = selectedImage
@@ -77,7 +78,7 @@ private extension UploadButton {
     }
 
     var errorLabel: some View {
-        Text(validationMessage)
+        Text(validationMessage ?? Constants.Strings.defaultErrorMessage)
             .foregroundColor(AppStyles.Colors.error)
             .font(AppStyles.Fonts.body4)
             .opacity(isValid ? 0 : 1)

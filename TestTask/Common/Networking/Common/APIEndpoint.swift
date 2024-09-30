@@ -11,10 +11,11 @@ enum UsersBaseAPIEndpoint {
     case getUsers(page: Int, count: Int)
     case getPositions
     case getToken
+    case registerUser
     
     var path: String {
         switch self {
-        case .getUsers:
+        case .getUsers, .registerUser:
             return "/users"
         case .getPositions:
             return "/positions"

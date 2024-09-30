@@ -20,7 +20,7 @@ struct UserSignupView: View {
                 VStack(alignment: .leading) {
                     Spacer()
 
-                    VStack(spacing: AppStyles.Spacing.l) {
+                    VStack(spacing: AppStyles.Spacing.m) {
                         // TODO: Create Data Source and remove duplication
                         FloatingTextField(
                             text: $viewModel.name,
@@ -52,7 +52,7 @@ struct UserSignupView: View {
                         title: Constants.Strings.radioGroupTitle,
                         options: viewModel.positions,
                         label: { $0.name },
-                        selectedOption: $viewModel.selectedPositions
+                        selectedOption: $viewModel.selectedPosition
                     )
                     .padding(.top, AppStyles.Spacing.s)
 
@@ -63,19 +63,19 @@ struct UserSignupView: View {
                     ) {
                         viewModel.showActionSheet = true
                     }
-                    .padding(.top, AppStyles.Spacing.l)
+                    .padding(.top, AppStyles.Spacing.s)
 
                     HStack {
                         Spacer()
 
                         PrimaryButton(title: Constants.Strings.signUpButton, disabled: viewModel.isButtonDisabled) {
-                            viewModel.validateData()
+                            viewModel.tapSignUp()
                             hideKeyboard()
                         }
 
                         Spacer()
                     }
-                    .padding(.top, AppStyles.Spacing.l)
+                    .padding(.top, AppStyles.Spacing.s)
                 }
                 .padding(.horizontal, AppStyles.Spacing.l)
                 .background(AppStyles.Colors.background)
@@ -92,6 +92,9 @@ struct UserSignupView: View {
                         .onDisappear {
                             viewModel.validateImage()
                         }
+                }
+                .fullScreenCover(isPresented: $viewModel.showStatusScreen) {
+                    StatusScreen(screenType: viewModel.statusScreenType, action: viewModel.statusScreenAction)
                 }
                 .permissionAlert(showAlert: $viewModel.showSettingsAlert)
             }

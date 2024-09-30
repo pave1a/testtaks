@@ -46,6 +46,9 @@
 		E9B38A892CA9F24200E91121 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B38A882CA9F24200E91121 /* RootViewModel.swift */; };
 		E9B38A8B2CA9F92800E91121 /* RadioGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B38A8A2CA9F92800E91121 /* RadioGroupView.swift */; };
 		E9B38A8F2CAA234200E91121 /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B38A8E2CAA234100E91121 /* TokenResponse.swift */; };
+		E9B38A912CAA283600E91121 /* RegistrationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B38A902CAA283600E91121 /* RegistrationResponse.swift */; };
+		E9B38A942CAA983F00E91121 /* UserRegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B38A932CAA983F00E91121 /* UserRegistrationRequest.swift */; };
+		E9B38A962CAA9BA300E91121 /* StatusScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B38A952CAA9BA300E91121 /* StatusScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +93,9 @@
 		E9B38A882CA9F24200E91121 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		E9B38A8A2CA9F92800E91121 /* RadioGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioGroupView.swift; sourceTree = "<group>"; };
 		E9B38A8E2CAA234100E91121 /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
+		E9B38A902CAA283600E91121 /* RegistrationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationResponse.swift; sourceTree = "<group>"; };
+		E9B38A932CAA983F00E91121 /* UserRegistrationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegistrationRequest.swift; sourceTree = "<group>"; };
+		E9B38A952CAA9BA300E91121 /* StatusScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +200,7 @@
 				E99B3A822CA96CE9000847E8 /* UploadButton.swift */,
 				E99B3A922CA979A2000847E8 /* ImagePicker.swift */,
 				E9B38A8A2CA9F92800E91121 /* RadioGroupView.swift */,
+				E9B38A952CAA9BA300E91121 /* StatusScreen.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -212,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				E99B3A642CA86B51000847E8 /* LinkResponse.swift */,
+				E9B38A902CAA283600E91121 /* RegistrationResponse.swift */,
 				E9B38A862CA9EED200E91121 /* PositionsResponse.swift */,
 				E9B38A8E2CAA234100E91121 /* TokenResponse.swift */,
 				E99B3A622CA86A43000847E8 /* UserResponse.swift */,
@@ -236,7 +244,7 @@
 		E99B3A5B2CA854BA000847E8 /* UsersBaseService */ = {
 			isa = PBXGroup;
 			children = (
-				E99B3A602CA86A06000847E8 /* APIRequestParams.swift */,
+				E9B38A922CAA983300E91121 /* Requests */,
 				E99B3A5E2CA854E4000847E8 /* UsersBaseConfig.swift */,
 				E99B3A5C2CA854D1000847E8 /* UsersBaseService.swift */,
 			);
@@ -350,6 +358,15 @@
 			path = Validator;
 			sourceTree = "<group>";
 		};
+		E9B38A922CAA983300E91121 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				E9B38A932CAA983F00E91121 /* UserRegistrationRequest.swift */,
+				E99B3A602CA86A06000847E8 /* APIRequestParams.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -425,7 +442,9 @@
 				E99B3A652CA86B51000847E8 /* LinkResponse.swift in Sources */,
 				E99B3A3F2CA80C86000847E8 /* AppStyles.swift in Sources */,
 				E99B3A5F2CA854E4000847E8 /* UsersBaseConfig.swift in Sources */,
+				E9B38A912CAA283600E91121 /* RegistrationResponse.swift in Sources */,
 				E99B3A992CA99E4D000847E8 /* TextFieldValidator.swift in Sources */,
+				E9B38A962CAA9BA300E91121 /* StatusScreen.swift in Sources */,
 				E99B3A2A2CA800BE000847E8 /* UsersListView.swift in Sources */,
 				E99B3A7C2CA95C93000847E8 /* RootView.swift in Sources */,
 				E99B3A882CA97320000847E8 /* Aliases.swift in Sources */,
@@ -435,6 +454,7 @@
 				E99B3A852CA96D24000847E8 /* UserSignupView.swift in Sources */,
 				E99B3A432CA814DA000847E8 /* PrimaryButton.swift in Sources */,
 				E99B3A8B2CA9733D000847E8 /* String+Empty.swift in Sources */,
+				E9B38A942CAA983F00E91121 /* UserRegistrationRequest.swift in Sources */,
 				E99B3A8F2CA976BC000847E8 /* PermissionManager.swift in Sources */,
 				E99B3A962CA97C07000847E8 /* PermissionAlertModifier.swift in Sources */,
 				E99B3A452CA82866000847E8 /* FloatingTextField.swift in Sources */,
