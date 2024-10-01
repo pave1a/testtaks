@@ -7,15 +7,19 @@
 
 import SwiftUI
 
-struct FloatingTextField: View {
-    @FocusState private var isFocused: Bool
-    @Binding var text: String
+struct FloatingTextFieldData {
+    var text: String
     var title: String
     var fieldType: TextFieldType
-    @Binding var validationMessage: String?
-    @Binding var isValid: Bool
+    var validationMessage: String?
+    var isValid: Bool
+}
 
-    var shouldShowTitle: Bool { isFocused || !text.isEmpty }
+struct FloatingTextField: View {
+    @FocusState private var isFocused: Bool
+    @Binding var data: FloatingTextFieldData
+
+    var shouldShowTitle: Bool { isFocused || !data.text.isEmpty }
 
     private let phonePrefix = "+380"
 
@@ -35,17 +39,17 @@ struct FloatingTextField: View {
                 .padding(.horizontal, Constants.horizontalSpacing)
         }
         .onAppear {
-            if fieldType == .phone && !text.hasPrefix(phonePrefix) {
-                text = phonePrefix
+            if data.fieldType == .phone && !data.text.hasPrefix(phonePrefix) {
+                data.text = phonePrefix
             }
         }
         .onChange(of: isFocused) { focused in
             if focused {
-                self.isValid = true
+                data.isValid = true
             }
         }
-        .onChange(of: text) { newValue in
-            if fieldType == .phone {
+        .onChange(of: data.text) { newValue in
+            if data.fieldType == .phone {
                 enforcePrefix(for: newValue)
             }
         }
@@ -56,33 +60,33 @@ private extension FloatingTextField {
     var borderColor: Color {
         isFocused
         ? AppStyles.Colors.secondary
-        : isValid ? Constants.borderColor : Constants.errorColor
+        : data.isValid ? Constants.borderColor : Constants.errorColor
     }
 
     var titleColor: Color {
         isFocused
         ? AppStyles.Colors.secondary
-        : isValid ? Constants.secondaryTextColor : Constants.errorColor
+        : data.isValid ? Constants.secondaryTextColor : Constants.errorColor
     }
 
     var errorLabel: some View {
-        Text(validationMessage ?? Constants.defaultErrorMessage)
+        Text(data.validationMessage ?? Constants.defaultErrorMessage)
             .foregroundColor(Constants.errorColor)
             .font(AppStyles.Fonts.body4)
-            .opacity(isValid ? 0 : 1)
+            .opacity(data.isValid ? 0 : 1)
     }
 
     var titleLabel: some View {
-        Text(title)
+        Text(data.title)
             .foregroundColor(titleColor)
             .font(shouldShowTitle ? AppStyles.Fonts.body4 : AppStyles.Fonts.body2)
             .offset(y: shouldShowTitle ? Constants.titleLabelOffset : 0)
     }
 
     var textField: some View {
-        TextField("", text: $text)
-            .keyboardType(fieldType.keyboardType)
-            .textInputAutocapitalization(fieldType.autocapitalization)
+        TextField("", text: $data.text)
+            .keyboardType(data.fieldType.keyboardType)
+            .textInputAutocapitalization(data.fieldType.autocapitalization)
             .autocorrectionDisabled(true)
             .focused($isFocused)
             .font(AppStyles.Fonts.body2)
@@ -92,7 +96,7 @@ private extension FloatingTextField {
 
     private func enforcePrefix(for newValue: String) {
         if !newValue.hasPrefix(phonePrefix) {
-            text = phonePrefix
+            data.text = phonePrefix
         }
     }
 
@@ -101,7 +105,7 @@ private extension FloatingTextField {
     }
 }
 
-enum TextFieldType {
+enum TextFieldType: CaseIterable {
     case email, name, phone
     
     var keyboardType: UIKeyboardType {

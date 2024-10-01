@@ -17,67 +17,14 @@ struct UserSignupView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(alignment: .leading) {
-                    Spacer()
-
-                    VStack(spacing: AppStyles.Spacing.m) {
-                        // TODO: Create Data Source and remove duplication
-                        FloatingTextField(
-                            text: $viewModel.name,
-                            title: "Name",
-                            fieldType: .name,
-                            validationMessage: $viewModel.nameErrorMessage,
-                            isValid: $viewModel.isNameValid
-                        )
-                        
-                        FloatingTextField(
-                            text: $viewModel.email,
-                            title: "Email",
-                            fieldType: .email,
-                            validationMessage: $viewModel.emailErrorMessage,
-                            isValid: $viewModel.isEmailValid
-                        )
-                        
-                        FloatingTextField(
-                            text: $viewModel.phoneNumber,
-                            title: "Phone number",
-                            fieldType: .phone,
-                            validationMessage: $viewModel.phoneNumberErrorMessage,
-                            isValid: $viewModel.isPhoneNumberValid
-                        )
-                    }
-                    .padding(.top, AppStyles.Spacing.l)
-                    
-                    RadioGroupView(
-                        title: Constants.Strings.radioGroupTitle,
-                        options: viewModel.positions,
-                        label: { $0.name },
-                        selectedOption: $viewModel.selectedPosition
-                    )
-                    .padding(.top, AppStyles.Spacing.s)
-
-                    UploadButton(
-                        selectedImage: viewModel.selectedImage,
-                        isValid: viewModel.isImageValid,
-                        validationMessage: viewModel.photoValidationErrorMessage
-                    ) {
-                        viewModel.showActionSheet = true
-                    }
-                    .padding(.top, AppStyles.Spacing.s)
-
-                    HStack {
-                        Spacer()
-
-                        PrimaryButton(title: Constants.Strings.signUpButton, disabled: viewModel.isButtonDisabled) {
-                            viewModel.tapSignUp()
-                            hideKeyboard()
-                        }
-
-                        Spacer()
-                    }
-                    .padding(.top, AppStyles.Spacing.s)
+                VStack(alignment: .leading, spacing: AppStyles.Spacing.l) {
+                    textFields
+                    radioGroup
+                    uploadButton
+                    signUpButton
                 }
                 .padding(.horizontal, AppStyles.Spacing.l)
+                .padding(.top, AppStyles.Spacing.xl)
                 .background(AppStyles.Colors.background)
                 .navigationTitle(Constants.Strings.title)
                 .navigationBarTitleDisplayMode(.inline)
@@ -118,6 +65,48 @@ private extension UserSignupView {
         Button(Constants.Strings.cancel, role: .cancel) { }
     }
 
+    var textFields: some View {
+        VStack(spacing: AppStyles.Spacing.m) {
+            ForEach($viewModel.textFieldsData, id: \.fieldType) { data in
+                FloatingTextField(data: data)
+            }
+        }
+    }
+
+    var radioGroup: some View {
+        RadioGroupView(
+            title: Constants.Strings.radioGroupTitle,
+            options: viewModel.positions,
+            label: { $0.name },
+            selectedOption: $viewModel.selectedPosition
+        )
+    }
+
+    var uploadButton: some View {
+        UploadButton(
+            selectedImage: viewModel.selectedImage,
+            isValid: viewModel.isImageValid,
+            validationMessage: viewModel.photoValidationErrorMessage
+        ) {
+            viewModel.showActionSheet = true
+        }
+    }
+
+    var signUpButton: some View {
+        HStack {
+            Spacer()
+
+            PrimaryButton(title: Constants.Strings.signUpButton, disabled: !viewModel.isSignupButtonEnabled) {
+                viewModel.tapSignUp()
+                hideKeyboard()
+            }
+
+            Spacer()
+        }
+    }
+}
+
+private extension UserSignupView {
     func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }

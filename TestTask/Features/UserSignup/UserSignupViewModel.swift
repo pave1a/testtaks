@@ -14,23 +14,13 @@ class UserSignupViewModel: ObservableObject {
     @Published var showSettingsAlert = false
     @Published var showImagePicker = false
 
+    // TextFields data source
+    @Published var textFieldsData = [FloatingTextFieldData]()
+
     // Status screen
     @Published var showStatusScreen = false
     @Published var statusScreenType: StatusScreenType = .userRegistered
     @Published var statusScreenAction: EmptyClosure = {}
-
-    // TextFields
-    @Published var name: String = .empty
-    @Published var isNameValid: Bool = true
-    @Published var nameErrorMessage: String?
-
-    @Published var email: String = .empty
-    @Published var isEmailValid: Bool = true
-    @Published var emailErrorMessage: String?
-
-    @Published var phoneNumber: String = .empty
-    @Published var isPhoneNumberValid: Bool = true
-    @Published var phoneNumberErrorMessage: String?
 
     // UploadButton
     @Published var isImageValid: Bool = true
@@ -42,13 +32,23 @@ class UserSignupViewModel: ObservableObject {
 
     private let usersBaseService: UsersBaseProtocol
 
-    var isButtonDisabled: Bool {
-        name.isEmpty || email.isEmpty || phoneNumber == Constants.numberPrefix
+    private var isTextFieldsValid: Bool {
+        textFieldsData.allSatisfy { $0.isValid }
+    }
+
+    var isSignupButtonEnabled: Bool {
+        textFieldsData.allSatisfy { textField in
+            if textField.fieldType == .phone && textField.text == Constants.numberPrefix {
+                return false
+            } else {
+                return !textField.text.isEmpty
+            }
+        }
     }
 
     init(usersBaseService: UsersBaseProtocol) {
         self.usersBaseService = usersBaseService
-
+        setupTextFields()
         loadPositions()
     }
 
@@ -88,25 +88,11 @@ class UserSignupViewModel: ObservableObject {
         }
     }
 
-    func validateData() {
-        let nameErrorMessageResult = checkValidationMessage(with: name, using: .name)
-        isNameValid = nameErrorMessageResult == nil
-        nameErrorMessage = nameErrorMessageResult
-
-        let emailErrorMessageResult = checkValidationMessage(with: email, using: .email)
-        isEmailValid = emailErrorMessageResult == nil
-        emailErrorMessage = emailErrorMessageResult
-
-        let phoneNumberErrorMessageResult = checkValidationMessage(with: phoneNumber, using: .phone)
-        isPhoneNumberValid = phoneNumberErrorMessageResult == nil
-        phoneNumberErrorMessage = phoneNumberErrorMessageResult
-    }
-
     func tapSignUp() {
         validateImage()
-        validateData()
+        validateTextFields()
 
-        if isNameValid && isEmailValid && isPhoneNumberValid && isImageValid {
+        if isTextFieldsValid && isImageValid {
             registerUser()
         }
     }
@@ -114,40 +100,65 @@ class UserSignupViewModel: ObservableObject {
 
 // MARK: - Private
 
+// Helpers
 private extension UserSignupViewModel {
+    func setupTextFields() {
+        textFieldsData = [
+            FloatingTextFieldData(text: .empty, title: "Name", fieldType: .name, validationMessage: nil, isValid: true),
+            FloatingTextFieldData(text: .empty, title: "Email", fieldType: .email, validationMessage: nil, isValid: true),
+            FloatingTextFieldData(text: .empty, title: "Phone number", fieldType: .phone, validationMessage: nil, isValid: true)
+        ]
+    }
+
     @MainActor
     func showImagePicker(for type: PermissionType) async {
         sourceType = type == .camera ? .camera : .photoLibrary
         showImagePicker = true
     }
+}
+
+// Validation
+private extension UserSignupViewModel {
+    func validateTextFields() {
+        TextFieldType.allCases.forEach {
+            validateTextField(type: $0)
+        }
+    }
+
+    func validateTextField(type: TextFieldType) {
+        guard let index = textFieldsData.firstIndex(where: { $0.fieldType == type }) else { return }
+
+        let validationValue = textFieldsData[index].text
+        let validationInput = ValidationInput(value: validationValue, type: type.validationType)
+        let validationResult = Validator.validate(input: validationInput)
+        let validationResultMessage = configureMessage(with: validationResult)
+
+        textFieldsData[index].validationMessage = validationResultMessage
+        textFieldsData[index].isValid = validationResultMessage == nil
+    }
+
+    func configureMessage(with validationResult: ValidationResult<ValidationError>) -> String? {
+        switch validationResult {
+        case .success:
+            return nil
+        case .failure(let validationError):
+            switch validationError {
+            case .empty:
+                return "Required field"
+            case .invalid:
+                return "Invalid field"
+            }
+        }
+    }
 
     func isImageUnderSizeLimit(_ image: UIImage) -> Bool {
-        if let imageData = image.jpegData(compressionQuality: 1.0) {
-            return imageData.count <= Constants.maxImageSize
-        }
-
-        return false
+        guard let imageData = image.jpegData(compressionQuality: 1.0) else { return false }
+        return imageData.count <= Constants.maxImageSize
     }
+}
 
-    func checkValidationMessage(with text: String, using type: TextFieldType) -> String? {
-        switch type {
-        case .email:
-            guard !text.isEmpty else { return "Required field" }
-            return TextFieldValidator.isValidEmail(text) ? nil : "Invalid email"
-
-        case .name:
-            guard !text.isEmpty else { return "Required field" }
-            if name.count < Constants.minNameLength || name.count > Constants.maxNameLength {
-                return "Name must be between 2 and 60 characters long."
-            }
-            return TextFieldValidator.isValidName(text) ? nil : "Invalid name"
-
-        case .phone:
-            guard !text.isEmpty else { return "Required field" }
-            return TextFieldValidator.isValidPhoneNumber(text) ? nil : "Invalid number"
-        }
-    }
-
+// Networking
+private extension UserSignupViewModel {
     func loadPositions() {
         Task {
             do {
@@ -162,47 +173,53 @@ private extension UserSignupViewModel {
     }
 
     func registerUser() {
-        if let selectedPosition = selectedPosition,
-           let selectedImage = selectedImage,
-           let imageJpegData = selectedImage.jpegData(compressionQuality: 1.0)
-        {
-            Task {
-                do {
-                    let registrationResponse = try await usersBaseService.registerUser(
-                        name: name,
-                        email: email,
-                        phone: phoneNumber,
-                        positionId: selectedPosition.id,
-                        photo: imageJpegData
-                    )
+        guard let nameTextField = textFieldsData.first(where: { $0.fieldType == .name }),
+              let emailTextField = textFieldsData.first(where: { $0.fieldType == .email }),
+              let phoneNumberTextField = textFieldsData.first(where: { $0.fieldType == .phone }),
+              let selectedPosition = selectedPosition,
+              let selectedImage = selectedImage,
+              let imageJpegData = selectedImage.jpegData(compressionQuality: 1.0)
+        else { return }
 
-                    await MainActor.run {
-                        if registrationResponse.success {
-                            statusScreenType = .userRegistered
-                            statusScreenAction = { [weak self] in
-                                self?.showStatusScreen = false
-                            }
-                        } else {
-                            statusScreenType = .registrationFailed(errorMessage: registrationResponse.message)
-                            statusScreenAction = retryRegistration
+        let name = nameTextField.text
+        let email = emailTextField.text
+        let phoneNumber = phoneNumberTextField.text
+
+        Task {
+            do {
+                let registrationResponse = try await usersBaseService.registerUser(
+                    name: name,
+                    email: email,
+                    phone: phoneNumber,
+                    positionId: selectedPosition.id,
+                    photo: imageJpegData
+                )
+
+                await MainActor.run {
+                    if registrationResponse.success {
+                        statusScreenType = .userRegistered
+                        statusScreenAction = { [weak self] in
+                            self?.showStatusScreen = false
                         }
+                    } else {
+                        statusScreenType = .registrationFailed(errorMessage: registrationResponse.message)
+                        statusScreenAction = retryRegistrationClosure
+                    }
 
-                        showStatusScreen = true
-                    }
-                } catch {
-                    await MainActor.run {
-                        statusScreenType = .registrationFailed(errorMessage: "Registration failed")
-                        statusScreenAction = retryRegistration
-                        showStatusScreen = true
-                    }
-                    print("Failed to create new user: \(error.localizedDescription)")
+                    showStatusScreen = true
                 }
+            } catch {
+                await MainActor.run {
+                    statusScreenType = .registrationFailed(errorMessage: "Registration failed")
+                    statusScreenAction = retryRegistrationClosure
+                    showStatusScreen = true
+                }
+                print("Failed to create new user: \(error.localizedDescription)")
             }
-            
         }
     }
 
-    func retryRegistration() {
+    func retryRegistrationClosure() {
         showStatusScreen = false
         tapSignUp()
     }
@@ -213,4 +230,19 @@ private enum Constants {
     static let maxNameLength = 60
     static let maxImageSize: Int = 5 * 1024 * 1024
     static let numberPrefix = "+380" 
+}
+
+// Maps `TextFieldType` to its corresponding `ValidationType`.
+// This extension simplifies the retrieval of the appropriate validation rule based on the type of text field (e.g., email, name, or phone).
+private extension TextFieldType {
+    var validationType: ValidationType {
+        switch self {
+        case .email:
+            return .email
+        case .name:
+            return .name
+        case .phone:
+            return .phoneNumber
+        }
+    }
 }
