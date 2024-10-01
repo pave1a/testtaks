@@ -31,12 +31,12 @@ struct UserCard: View {
             VStack(alignment: .leading, spacing: 0) {
                 Text(user.name)
                     .font(AppStyles.Fonts.body1)
-                    .foregroundStyle(AppStyles.Colors.secondaryText)
+                    .foregroundStyle(AppStyles.Colors.primaryText)
                     .padding(.bottom, AppStyles.Spacing.xs)
                 
                 Text(user.position)
                     .font(AppStyles.Fonts.body3)
-                    .foregroundColor(.gray)
+                    .foregroundColor(AppStyles.Colors.secondaryText)
                     .padding(.bottom, AppStyles.Spacing.s)
                 
                 Text(user.email)
