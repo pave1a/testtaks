@@ -33,7 +33,7 @@ struct FloatingTextField: View {
             }
             .padding(.horizontal, Constants.horizontalSpacing)
             .frame(height: Constants.textFieldHeigh)
-            .overlay(RoundedRectangle(cornerRadius: Constants.cornerRadius).stroke(borderColor, lineWidth: Constants.borderWidth))
+            .modifier(BorderedViewModifier(isValid: data.isValid, isFocused: isFocused))
 
             errorLabel
                 .padding(.horizontal, Constants.horizontalSpacing)
@@ -70,10 +70,7 @@ private extension FloatingTextField {
     }
 
     var errorLabel: some View {
-        Text(data.validationMessage ?? Constants.defaultErrorMessage)
-            .foregroundColor(Constants.errorColor)
-            .font(AppStyles.Fonts.body4)
-            .opacity(data.isValid ? 0 : 1)
+        ValidationMessageView(isValid: data.isValid, validationMessage: data.validationMessage)
     }
 
     var titleLabel: some View {
@@ -143,6 +140,4 @@ private enum Constants {
     static let focusedColor = AppStyles.Colors.secondary
     static let textColor = AppStyles.Colors.primaryText
     static let secondaryTextColor = AppStyles.Colors.secondaryText
-
-    static let defaultErrorMessage = "Required field"
 }

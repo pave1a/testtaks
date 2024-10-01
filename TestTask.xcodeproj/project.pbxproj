@@ -53,6 +53,8 @@
 		E9C639A22CAB98CE00DD11A5 /* ValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C639A12CAB98CE00DD11A5 /* ValidationType.swift */; };
 		E9C639A42CAB98DE00DD11A5 /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C639A32CAB98DE00DD11A5 /* ValidationResult.swift */; };
 		E9C639A62CAB98F000DD11A5 /* ValidationInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C639A52CAB98F000DD11A5 /* ValidationInput.swift */; };
+		E9C639A82CABA18E00DD11A5 /* BorderedViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C639A72CABA18E00DD11A5 /* BorderedViewModifier.swift */; };
+		E9C639AA2CABA22D00DD11A5 /* ValidationMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C639A92CABA22D00DD11A5 /* ValidationMessageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +106,8 @@
 		E9C639A12CAB98CE00DD11A5 /* ValidationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationType.swift; sourceTree = "<group>"; };
 		E9C639A32CAB98DE00DD11A5 /* ValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
 		E9C639A52CAB98F000DD11A5 /* ValidationInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationInput.swift; sourceTree = "<group>"; };
+		E9C639A72CABA18E00DD11A5 /* BorderedViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedViewModifier.swift; sourceTree = "<group>"; };
+		E9C639A92CABA22D00DD11A5 /* ValidationMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationMessageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,13 +206,14 @@
 		E99B3A412CA814C4000847E8 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				E99B3A942CA97BF3000847E8 /* ViewModifiers */,
-				E99B3A422CA814D9000847E8 /* PrimaryButton.swift */,
 				E99B3A442CA82866000847E8 /* FloatingTextField.swift */,
-				E99B3A822CA96CE9000847E8 /* UploadButton.swift */,
 				E99B3A922CA979A2000847E8 /* ImagePicker.swift */,
+				E99B3A422CA814D9000847E8 /* PrimaryButton.swift */,
 				E9B38A8A2CA9F92800E91121 /* RadioGroupView.swift */,
 				E9B38A952CAA9BA300E91121 /* StatusScreen.swift */,
+				E99B3A822CA96CE9000847E8 /* UploadButton.swift */,
+				E9C639A92CABA22D00DD11A5 /* ValidationMessageView.swift */,
+				E99B3A942CA97BF3000847E8 /* ViewModifiers */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -355,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				E99B3A952CA97C07000847E8 /* PermissionAlertModifier.swift */,
+				E9C639A72CABA18E00DD11A5 /* BorderedViewModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -491,6 +497,7 @@
 				E99B3A912CA97983000847E8 /* UserSignupViewModel.swift in Sources */,
 				E9B38A872CA9EED200E91121 /* PositionsResponse.swift in Sources */,
 				E99B3A4B2CA8459D000847E8 /* UsersResponse.swift in Sources */,
+				E9C639A82CABA18E00DD11A5 /* BorderedViewModifier.swift in Sources */,
 				E99B3A682CA8747F000847E8 /* UsersListViewModel.swift in Sources */,
 				E99B3A832CA96CE9000847E8 /* UploadButton.swift in Sources */,
 				E99B3A5D2CA854D1000847E8 /* UsersBaseService.swift in Sources */,
@@ -499,6 +506,7 @@
 				E99B3A802CA96B28000847E8 /* DashboardTabItemView.swift in Sources */,
 				E9B38A8B2CA9F92800E91121 /* RadioGroupView.swift in Sources */,
 				E99B3A6C2CA8764A000847E8 /* UserCard.swift in Sources */,
+				E9C639AA2CABA22D00DD11A5 /* ValidationMessageView.swift in Sources */,
 				E99B3A562CA85472000847E8 /* NetworkError.swift in Sources */,
 				E99B3A582CA85478000847E8 /* APIConfiguration.swift in Sources */,
 			);

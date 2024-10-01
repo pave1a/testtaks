@@ -10,7 +10,6 @@ import SwiftUI
 private enum Constants {
     static let imageSize = AppStyles.Spacing.xxl
     static let borderWidth = AppStyles.Spacing.xxxs
-    static let cornerRadius = AppStyles.Spacing.xs
     static let horizontalSpacing = AppStyles.Spacing.l
     static let frameHeigh = CGFloat(56)
 
@@ -63,8 +62,8 @@ struct UploadButton: View {
             }
             .padding(AppStyles.Spacing.l)
             .frame(height: Constants.frameHeigh)
-            .overlay(RoundedRectangle(cornerRadius: Constants.cornerRadius).stroke(tintColor, lineWidth: Constants.borderWidth))
             .onTapGesture(perform: action)
+            .modifier(BorderedViewModifier(isValid: isValid))
 
             errorLabel
                 .padding(.horizontal, Constants.horizontalSpacing)
@@ -78,9 +77,6 @@ private extension UploadButton {
     }
 
     var errorLabel: some View {
-        Text(validationMessage ?? Constants.Strings.defaultErrorMessage)
-            .foregroundColor(AppStyles.Colors.error)
-            .font(AppStyles.Fonts.body4)
-            .opacity(isValid ? 0 : 1)
+        ValidationMessageView(isValid: isValid, validationMessage: validationMessage)
     }
 }
